@@ -1,4 +1,4 @@
 # Explore_Xpress
-The Tourism Website Project is designed to provide travelers with a simple, user-friendly platform to explore popular destinations, attractions, accommodations, and travel options. The website aims to bring all essential travel information together in one place, supported with high-quality images and clear descriptions.
+The Tourism Website Project is designed to provide travelers with a simple,  user-friendly platform to explore popular destinations, attractions, accommodations, and travel options. The website aims to bring all essential travel information together in one place, supported with high-quality images and clear descriptions.
 By integrating features like destination search, place details, travel guidance, and responsive design, the project makes it easier for tourists to plan their trips efficiently. The website also leverages APIs such as Unsplash for dynamic images to enhance the visual appeal.
 This project demonstrates the application of web development technologies in solving real-world problems and highlights how digital platforms can promote tourism by offering reliable, engaging, and accessible travel information.
