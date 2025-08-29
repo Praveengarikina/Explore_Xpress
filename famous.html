@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Famous Places</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ===== Background & Body ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #141e30, #243b55, #ff512f, #dd2476);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== Glowing Particles ===== */
+body::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 60%);
+  animation: rotate 60s linear infinite;
+}
+@keyframes rotate {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+/* ===== Floating Icons ===== */
+.tour-icons {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+.tour-icons i {
+  position: absolute;
+  font-size: 2.8rem;
+  color: hsl(calc(30 * var(--i)), 80%, 70%);
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
+  text-shadow: 0 0 25px rgba(255,255,255,0.4), 0 0 35px rgba(0,200,255,0.3);
+}
+.tour-icons i:nth-child(odd) { animation-duration: 10s; }
+.tour-icons i:nth-child(even) { animation-duration: 14s; }
+
+/* Spread across page */
+.tour-icons i:nth-child(1){top:5%;left:8%;}
+.tour-icons i:nth-child(2){top:15%;right:12%;}
+.tour-icons i:nth-child(3){bottom:8%;left:10%;}
+.tour-icons i:nth-child(4){bottom:12%;right:15%;}
+.tour-icons i:nth-child(5){top:35%;left:5%;}
+.tour-icons i:nth-child(6){top:35%;right:5%;}
+.tour-icons i:nth-child(7){bottom:35%;left:6%;}
+.tour-icons i:nth-child(8){bottom:35%;right:6%;}
+.tour-icons i:nth-child(9){top:5%;left:50%;}
+.tour-icons i:nth-child(10){bottom:5%;right:50%;}
+.tour-icons i:nth-child(11){top:20%;left:25%;}
+.tour-icons i:nth-child(12){bottom:20%;right:25%;}
+.tour-icons i:nth-child(13){top:75%;left:25%;}
+.tour-icons i:nth-child(14){bottom:75%;right:25%;}
+.tour-icons i:nth-child(15){top:50%;left:12%;}
+.tour-icons i:nth-child(16){top:50%;right:12%;}
+.tour-icons i:nth-child(17){bottom:50%;left:12%;}
+.tour-icons i:nth-child(18){bottom:50%;right:12%;}
+
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  50%  { transform: translateY(-20px) rotate(8deg); opacity: 0.85; }
+  100% { transform: translateY(0) rotate(-8deg); opacity: 1; }
+}
+
+/* ===== Spotlight Glow ===== */
+.spotlight {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* ===== Main Card ===== */
+.main-card {
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+  z-index: 2;
+  position: relative;
+  animation: cardAppear 1s ease forwards;
+  transform: scale(0.9);
+  opacity: 0;
+}
+@keyframes cardAppear {
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Title Card ===== */
+.title-card {
+  background: linear-gradient(90deg, #ff00c8, #00ffe7, #ff512f);
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: shimmer 3s infinite linear;
+  background-size: 300% 300%;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%;}
+  50% { background-position: 100% 50%;}
+  100% { background-position: 0% 50%;}
+}
+.title-card h2 {
+  margin: 0;
+  font-family: 'Lobster', cursive;
+  font-size: 1.6rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.title-card i {
+  font-size: 1.6rem;
+  color: white;
+}
+
+/* ===== Locations Grid ===== */
+.card-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media(max-width: 768px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 500px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+.place-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: fadeUp 0.6s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.place-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+}
+.place-card i {
+  color: #00ffe7;
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+.place-card h3 {
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+</style>
+</head>
+<body>
+
+<div class="spotlight"></div>
+
+<!-- Floating Icons -->
+<div class="tour-icons">
+  <i class="fa-solid fa-mountain" style="--i:1"></i>
+  <i class="fa-solid fa-umbrella-beach" style="--i:2"></i>
+  <i class="fa-solid fa-plane" style="--i:3"></i>
+  <i class="fa-solid fa-hiking" style="--i:4"></i>
+  <i class="fa-solid fa-campground" style="--i:5"></i>
+  <i class="fa-solid fa-ship" style="--i:6"></i>
+  <i class="fa-solid fa-hotel" style="--i:7"></i>
+  <i class="fa-solid fa-binoculars" style="--i:8"></i>
+  <i class="fa-solid fa-route" style="--i:9"></i>
+  <i class="fa-solid fa-compass" style="--i:10"></i>
+  <i class="fa-solid fa-camera-retro" style="--i:11"></i>
+  <i class="fa-solid fa-water" style="--i:12"></i>
+  <i class="fa-solid fa-tree" style="--i:13"></i>
+  <i class="fa-solid fa-tent" style="--i:14"></i>
+  <i class="fa-solid fa-bus" style="--i:15"></i>
+  <i class="fa-solid fa-bicycle" style="--i:16"></i>
+  <i class="fa-solid fa-fire" style="--i:17"></i>
+  <i class="fa-solid fa-globe" style="--i:18"></i>
+</div>
+
+<!-- Main Card -->
+<div class="main-card">
+  <!-- Title Card -->
+  <div class="title-card">
+    <i class="fa-solid fa-earth-asia"></i>
+    <h2 id="pageTitle">🌍 Famous Places</h2>
+  </div>
+
+  <!-- Places Grid -->
+  <div class="card-grid" id="placeList"></div>
+</div>
+
+<script>
+async function loadPlaces() {
+  const params = new URLSearchParams(window.location.search);
+  const state = params.get('state');
+  const district = params.get('district');
+
+  if (district) {
+    document.getElementById("pageTitle").innerText = `Famous Places – ${district}`;
+  }
+
+  if (!state || !district) {
+    document.getElementById('placeList').innerHTML = "<p>Missing parameters</p>";
+    return;
+  }
+  const res = await fetch(`/get_places?state=${encodeURIComponent(state)}&city=${encodeURIComponent(district)}`);
+  const data = await res.json();
+
+  if (data.places && data.places.length > 0) {
+    document.getElementById("placeList").innerHTML = data.places.map((place, index) => `
+      <div class="place-card" style="animation-delay:${index * 0.1}s" onclick="goToPlace('${place}')">
+        <i class="fa-solid fa-location-dot"></i>
+        <h3>${place}</h3>
+      </div>
+    `).join("");
+  } else {
+    document.getElementById("placeList").innerHTML = "<p>No famous places found.</p>";
+  }
+}
+function goToPlace(placeName) {
+  const params = new URLSearchParams(window.location.search);
+  const state = params.get('state');
+  const district = params.get('district');
+  window.location.href = `/place?state=${encodeURIComponent(state)}&district=${encodeURIComponent(district)}&place=${encodeURIComponent(placeName)}`;
+}
+loadPlaces();
+</script>
+</body>
+</html>
