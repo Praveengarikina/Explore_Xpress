@@ -1,0 +1,143 @@
+
+body {
+  background: linear-gradient(135deg, #e0f7fa, #fff3e0);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 30px;
+  text-align: center;
+}
+
+h1 {
+  color: #ff6f61;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.selectors {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.dropdown-group label {
+  font-weight: bold;
+}
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.btn {
+  background: #ff6f61;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #ff3d2f;
+  transform: scale(1.05);
+}
+
+/* Place Cards */
+.places-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.place-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 250px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.place-card:hover {
+  transform: translateY(-10px);
+}
+
+.place-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.place-card .details {
+  padding: 15px;
+  text-align: left;
+}
+
+/* Place Details Page */
+.place-info {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.place-info img {
+  width: 50%;
+  max-width: 400px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.map-frame {
+  width: 70%;
+  max-width: 600px;
+  height: 330px;
+  border: none;
+  border-radius: 12px;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #00ccff;
+  text-decoration: none;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+.transport-links {
+  margin-top: 20px;
+}
+
+.transport-links button {
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #3a9bdc;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.transport-links button:hover {
+  background: #287bb5;
+}
